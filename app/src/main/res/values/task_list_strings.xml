@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="task_list_title">
+        Lista de tarefas
+    </string>
+
+    <string name="update_task_message_when_empty">
+        O novo nome da tarefa não pode ser vazio!
+    </string>
+
+    <string name="task_list_edit_task_hint">
+        Novo nome da tarefa
+    </string>
+</resources>

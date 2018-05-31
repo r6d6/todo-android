@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_task_edit_text">
+        Nome da nova tarefa
+    </string>
+
+    <string name="new_task_message_when_empty">
+        Ops, você esqueceu o nome da tarefa!
+    </string>
+</resources>
