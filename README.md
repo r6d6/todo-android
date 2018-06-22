@@ -1,4 +1,4 @@
-# todo-android
+# todo
 
 ## Aplicativo todo para android, pré-requisito para matéria de dispositivos móveis em ADS no Câmpus IFSP Boituva.
 

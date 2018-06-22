@@ -2,16 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/presentationForm"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextUpdateName"
+            android:layout_width="301dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="@string/task_list_edit_task_hint"
+            android:inputType="textPersonName"
+            android:textSize="14sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewTaskName"
@@ -20,7 +34,8 @@
             android:layout_marginTop="6dp"
             android:layout_weight="1"
             android:paddingLeft="10dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="visible" />
 
         <ImageButton
             android:id="@+id/btnDeleteTask"
@@ -35,8 +50,20 @@
             app:srcCompat="@drawable/icon_delete" />
 
         <ImageButton
+            android:id="@+id/btnSaveUpdate"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0"
+            android:background="@android:color/transparent"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:srcCompat="@drawable/icon_save" />
+
+        <ImageButton
             android:id="@+id/btnEditTask"
-            android:layout_width="0dp"
+            android:layout_width="10dp"
             android:layout_height="35dp"
             android:layout_marginTop="0dp"
             android:layout_weight="1"
@@ -46,39 +73,6 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/icon_edit" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutUpdateTaskForm"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:orientation="horizontal"
-        android:visibility="gone">
-
-        <EditText
-            android:id="@+id/editTextUpdateName"
-            android:layout_width="301dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="@string/task_list_edit_task_hint"
-            android:inputType="textPersonName"
-            android:textSize="14sp" />
-
-        <ImageButton
-            android:id="@+id/btnSaveUpdate"
-            android:layout_width="10dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="0dp"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:background="@android:color/transparent"
-            android:padding="0dp"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/icon_save" />
 
     </LinearLayout>
 
