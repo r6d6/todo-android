@@ -2,14 +2,12 @@ package com.example.angelo.todo.database
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
 import java.util.ArrayList
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, VERSION) {
-
     private val createTaskTableSql: String
         get() {
             val table = "tasks"
@@ -84,8 +82,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     companion object {
-        private val DATABASE_NAME = "todo.db"
-        private val VERSION = 1
+        private const val DATABASE_NAME = "todo.db"
+        private const val VERSION = 1
     }
-
 }

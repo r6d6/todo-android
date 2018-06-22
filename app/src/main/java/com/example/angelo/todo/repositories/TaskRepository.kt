@@ -1,7 +1,5 @@
 package com.example.angelo.todo.repositories
 
-import android.content.ContentValues
-
 import java.util.ArrayList
 
 import com.example.angelo.todo.database.DatabaseHelper
@@ -9,7 +7,6 @@ import com.example.angelo.todo.mapper.TaskMapper
 import com.example.angelo.todo.models.Task
 
 class TaskRepository(private val database: DatabaseHelper) {
-
     fun insert(task: Task): Task {
         val _id = this.database.insertTask(TaskMapper.toInsert(task))
 

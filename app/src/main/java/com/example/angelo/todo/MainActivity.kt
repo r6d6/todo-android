@@ -3,7 +3,6 @@ package com.example.angelo.todo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ListView
@@ -70,22 +69,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun setAddTaskListener() {
         val btnAddNewTask = this.addTaskButton
-
         val editTextTaskName = this.newTaskEditText
         val taskListView = this.taskListView
 
         btnAddNewTask.setOnClickListener(View.OnClickListener {
-                if (editTextTaskName.text.toString() == "") {
-                    Toast.makeText(this@MainActivity, R.string.new_task_message_when_empty, Toast.LENGTH_SHORT).show()
+            if (editTextTaskName.text.toString() == "") {
+                Toast.makeText(this@MainActivity, R.string.new_task_message_when_empty, Toast.LENGTH_SHORT).show()
 
-                    return@OnClickListener
-                }
+                return@OnClickListener
+            }
 
-                val task = taskService!!.insert(editTextTaskName.text.toString())
+            val task = taskService!!.insert(editTextTaskName.text.toString())
 
-                taskList!!.add(0, task)
-                taskListView.adapter = taskListAdapter
-                editTextTaskName.setText("")
+            taskList!!.add(0, task)
+            taskListView.adapter = taskListAdapter
+            editTextTaskName.setText("")
         })
     }
 }

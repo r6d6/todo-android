@@ -35,7 +35,7 @@ class TaskListArrayAdapter(
         return this.list[pos].id.toLong()
     }
 
-    override fun getView(position: Int, convertView: View, parent: ViewGroup): View? {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var view: View? = convertView
 
         if (view == null) {
@@ -54,14 +54,14 @@ class TaskListArrayAdapter(
         this.notifyDataSetChanged()
     }
 
-    protected fun setListeners(view: View, position: Int, parentView: View) {
+    private fun setListeners(view: View, position: Int, parentView: View) {
         this.setDeleteButtonListener(view, position, parentView)
         this.setSaveUpdateButtonListener(view, position, parentView)
         this.setEditTaskNameButtonListener(view, position, parentView)
     }
 
     private fun setDeleteButtonListener(view: View, position: Int, parentView: View) {
-        val deleteBtn = this.getDeleteButtonFromView(view)
+        val deleteBtn = Companion.getDeleteButtonFromView(view)
         val taskListArrayAdapter = this
 
         deleteBtn.setOnClickListener {
@@ -75,9 +75,9 @@ class TaskListArrayAdapter(
 
     private fun setEditTaskNameButtonListener(view: View, position: Int, parentView: View) {
         val taskNameTextView = this.getTextViewTaskNameFromView(view)
-        val deleteButton = this.getDeleteButtonFromView(view)
+        val deleteButton = Companion.getDeleteButtonFromView(view)
         val editTaskButton = this.getEditTaskNameButtonFromView(view)
-        val updateTaskNameEditText = view.findViewById<EditText>(R.id.editTextUpdateName)
+        val updateTaskNameEditText = this.getEditTextUpdateNameFromView(view)
         val saveChangeButton = this.getSaveEditBtnFromView(view)
 
         editTaskButton.setOnClickListener {
@@ -94,7 +94,7 @@ class TaskListArrayAdapter(
     }
 
     private fun setSaveUpdateButtonListener(view: View, position: Int, parentView: View) {
-        val deleteBtn = this.getDeleteButtonFromView(view)
+        val deleteBtn = Companion.getDeleteButtonFromView(view)
         val saveUpdateBtn = this.getSaveEditBtnFromView(view)
         val editTaskNameBtn = this.getEditTaskNameButtonFromView(view)
         val textViewTaskName = this.getTextViewTaskNameFromView(view)
@@ -112,7 +112,7 @@ class TaskListArrayAdapter(
 
             val task = list[position]
             task.name = newName
-            taskService.update(task.id.toLong(), task.name)
+            taskService.update(task.id.toLong(), task.name!!)
             list[position] = task
 
             saveUpdateBtn.visibility = View.GONE
@@ -126,20 +126,26 @@ class TaskListArrayAdapter(
         })
     }
 
-    fun getDeleteButtonFromView(view: View): ImageButton {
-        return view.findViewById(R.id.btnDeleteTask)
-    }
-
-    fun getSaveEditBtnFromView(view: View): ImageButton {
+    private fun getSaveEditBtnFromView(view: View): ImageButton {
         return view.findViewById(R.id.btnSaveUpdate)
     }
 
-    fun getEditTaskNameButtonFromView(view: View): ImageButton {
+    private fun getEditTaskNameButtonFromView(view: View): ImageButton {
         return view.findViewById(R.id.btnEditTask)
     }
 
-    fun getTextViewTaskNameFromView(view: View): TextView {
+    private fun getEditTextUpdateNameFromView(view: View): EditText {
+        return view.findViewById(R.id.editTextUpdateName)
+    }
+
+    private fun getTextViewTaskNameFromView(view: View): TextView {
         return view.findViewById(R.id.textViewTaskName)
+    }
+
+    companion object {
+        fun getDeleteButtonFromView(view: View): ImageButton {
+            return view.findViewById(R.id.btnDeleteTask)
+        }
     }
 }
 

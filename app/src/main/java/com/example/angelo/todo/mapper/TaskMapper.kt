@@ -5,7 +5,6 @@ import android.content.ContentValues
 import com.example.angelo.todo.models.Task
 
 import java.util.ArrayList
-import java.util.function.Function
 
 object TaskMapper {
     fun toEntity(_id: String, name: String): Task {
@@ -19,7 +18,6 @@ object TaskMapper {
     }
 
     fun toEntity(name: String): Task {
-
         return Task(name)
     }
 

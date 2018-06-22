@@ -13,5 +13,4 @@ class Task(name: String) {
     override fun toString(): String {
         return this.name.toString()
     }
-
 }

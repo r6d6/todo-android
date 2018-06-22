@@ -9,14 +9,9 @@ import java.util.ArrayList
 
 class TaskService(database: DatabaseHelper) {
 
-    private val taskRepository: TaskRepository
-
-    init {
-        this.taskRepository = TaskRepository(database)
-    }
+    private val taskRepository: TaskRepository = TaskRepository(database)
 
     fun insert(name: String): Task {
-
         return taskRepository.insert(TaskMapper.toEntity(name))
     }
 
@@ -25,7 +20,6 @@ class TaskService(database: DatabaseHelper) {
     }
 
     fun update(_id: Long, name: String): Task {
-
         return taskRepository.update(TaskMapper.toEntity(java.lang.Long.toString(_id), name))
     }
 
